@@ -4,23 +4,23 @@ import Display from './Display'
 
 function Calculator() {
     
-    const [equationString, setEquationString] = useState("")
-    const [currentValue, setCurrentValue] = useState("")
+    const [equationString, setEquationString] = useState("") // Keep track of the full equation
+    const [currentValue, setCurrentValue] = useState("") // The current equation value/values to be appended to the equation
 
-    const clickedValue = (e)=>
+    const clickedValue = (e)=> // Handle the click and append to the current and equation values
     {
         setCurrentValue(currentValue+e)
         setEquationString(equationString+e)
         if (e==="="){setEquationString(calculate())}
     }
 
-    const clearall = ()=> 
+    const clearall = ()=> // Handle the C button and clear the 2 displays
     {
         setCurrentValue("")
         setEquationString("")
     }
 
-    const backspace = ()=>
+    const backspace = ()=> // Handle the CE button and clears only the current value if not empty
     {
         if (currentValue != "")
         {
@@ -29,7 +29,7 @@ function Calculator() {
         }
     }
     
-    function calculate()
+    function calculate() // This is kind of a cheat method, but a valid one, it uses eval function to return the result of a string equation
     {
         try {
             var result = eval(equationString)
