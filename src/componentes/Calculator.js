@@ -22,8 +22,11 @@ function Calculator() {
 
     const backspace = ()=>
     {
-        setCurrentValue(currentValue.slice(0,-1))
-        setEquationString(equationString.slice(0,-1))
+        if (currentValue != "")
+        {
+            setCurrentValue(currentValue.slice(0,-1))
+            setEquationString(equationString.slice(0,-1))
+        }
     }
     
     function calculate()
